@@ -1,0 +1,22 @@
+{% import 'bootstrap/form.html' as fom %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block styles %}
+        {{ bootstrap.load_css() }}
+    {% endblock %}
+    <title>Document</title>
+</head>
+<body>
+    <h1>To Do App</h1>
+    {{ fom.render_form(form)}}<br>
+    {% for task in tasks %}
+        {% include '_task.html' %}
+    {% endfor %}
+    </body>
+</html> 

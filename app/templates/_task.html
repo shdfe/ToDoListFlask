@@ -1,0 +1,23 @@
+<table class="table table-hover">
+    <tr>
+        <form action="{{ url_for('delete',id=task.id) }}">
+            {{ form.hidden_tag() }}
+            {{ form.submit(value='Delete', class_='btn btn-default') }}
+        </form>
+        <form action="{{ url_for('complete',id=task.id) }}">
+            {{ form.hidden_tag() }}
+            {{ form.submit(value='Mark Complete', class='btn btn-default') }}
+        </form>
+        <form action="{{ url_for('incomplete',id=task.id) }}">
+            {{ form.hidden_tag() }}
+            {{ form.submit(value='Mark Incomplete', class='btn btn-default') }}
+        </form>
+        <td>
+            {% if task.status == True %}
+                <p style="text-decoration: line-through;">{{ task.task }}</p>
+            {% else %} 
+                <p>{{ task.task }}</p>
+            {% endif %}
+        </td>
+    </tr>
+</table>
